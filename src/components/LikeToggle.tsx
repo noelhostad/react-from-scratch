@@ -6,6 +6,7 @@ export function LikeToggle() {
   const [count, setCount] = React.useState(0);
 
   function handleClick() {
+    console.log("clicked");
     setIsLiked(!isLiked);
     setCount((prevCount) => prevCount + 1);
     setCount((prevCount) => prevCount + 1);
