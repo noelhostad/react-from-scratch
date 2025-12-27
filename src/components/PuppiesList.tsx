@@ -1,21 +1,24 @@
 import { type Puppy } from "../types";
 import { LikeToggle } from "./LikeToggle";
+import { useState } from "react";
 
 export function PuppiesList({ puppies }: { puppies: Puppy[] }) {
+  const [liked_puppies, setLikedPuppies] = useState({});
   return (
     <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {puppies.map((puppy) => (
-        <PuppyCard key={puppy.id} puppy={puppy} />
+        <PuppyCard key={puppy.id} puppy={puppy} liked={liked_puppies[puppy.id]} />
       ))}
     </ul>
   );
 }
 
 type PuppyCardProps = {
-  puppy: Puppy;
+  puppy: Puppy,
+  liked: boolean,
 };
 
-function PuppyCard({ puppy }: PuppyCardProps) {
+function PuppyCard({ puppy, liked }: PuppyCardProps) {
   return (
     <li
       key={puppy.id}
@@ -32,7 +35,7 @@ function PuppyCard({ puppy }: PuppyCardProps) {
           <span className="text-slate-300">·</span>
           <p className="text-slate-500">{puppy.vibe}</p>
         </div>
-        <LikeToggle />
+        <LikeToggle liked={liked} />
       </div>
     </li>
   );
