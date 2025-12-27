@@ -1,19 +1,14 @@
 import { Heart } from "lucide-react";
-import * as React from "react";
+import { useState } from "react";
 
 export function LikeToggle() {
-  const [isLiked, setIsLiked] = React.useState(false);
-  const [count, setCount] = React.useState(0);
-
-  function handleClick() {
-    setIsLiked(!isLiked);
-    setCount((prevCount) => prevCount + 1);
-    setCount((prevCount) => prevCount + 1);
-    setCount((prevCount) => prevCount + 1);
-  }
+  const [isLiked, setIsLiked] = useState(false);
 
   return (
-    <button className="group flex items-center gap-1" onClick={handleClick}>
+    <button
+        className="group flex items-center gap-1"
+        onClick={() => setIsLiked(!isLiked)}
+    >
       <Heart
         className={
           isLiked
@@ -21,7 +16,6 @@ export function LikeToggle() {
             : "stroke-slate-200 group-hover:stroke-slate-300"
         }
       />
-      <span>{count}</span>
     </button>
   );
 }
