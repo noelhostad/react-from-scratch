@@ -1,22 +1,6 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { Heart } from "lucide-react";
-<<<<<<< HEAD
 import { Puppy } from "../types";
-=======
-import * as React from "react";
-
-export function LikeToggle() {
-  const [isLiked, setIsLiked] = React.useState(false);
-  const [count, setCount] = React.useState(0);
-
-  function handleClick() {
-    console.log("clicked");
-    setIsLiked(!isLiked);
-    setCount((prevCount) => prevCount + 1);
-    setCount((prevCount) => prevCount + 1);
-    setCount((prevCount) => prevCount + 1);
-  }
->>>>>>> testing remoteS
 
 export function LikeToggle({
   id,
